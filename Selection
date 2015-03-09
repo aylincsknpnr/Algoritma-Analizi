@@ -1,0 +1,40 @@
+
+public class SelectionSort {
+private static int exchanges;
+private static int comparisons;
+
+public static void selectionSort(int[] x) {    
+    for (int i=0; i<x.length-1; i++) {
+        for (int j=i+1; j<x.length; j++) {
+            if (x[i] > x[j]) 
+            {
+                //... Exchange elements
+                int temp = x[i];
+                x[i] = x[j];
+                x[j] = temp;
+                exchanges++;
+            }
+            comparisons++;
+        }
+    }
+    System.out.println("SelSort_Exchanges: "+exchanges);
+    System.out.println("SelSort_Comparisons: "+comparisons);
+    System.out.println("SelSort_Operations: "+(exchanges+comparisons));
+}
+
+
+
+    public static void main(String[] args) {
+     
+      
+		
+		int size=10;
+		int []array = new int[size];
+		int item = 0;
+		for(int i=0;i<size;i++){
+			item = (int)(Math.random()*1000); 
+			array[i] = item;
+		}
+		selectionSort(array);
+    }
+}
