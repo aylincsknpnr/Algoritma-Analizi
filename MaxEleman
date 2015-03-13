@@ -1,0 +1,75 @@
+
+import javax.swing.JOptionPane;
+ 
+public class maxEleman
+{
+    public static void main(String[] args) 
+    {
+        ornekuygulama();
+    }
+     
+    static void ornekuygulama()
+    {
+        // klavyeden girilen 10 adet sayı bir dizi değişkene alındı
+        // ekrana teker teker yazıldı, toplamı ve ortalaması alındı ve ekrana yazıldı
+        int toplam = 0;
+        int dizi[] = new int[10];
+        for(int i=0; i<dizi.length; i++)
+        {
+            dizi[i] = Integer.valueOf(JOptionPane.showInputDialog("Bir Sayı Girin" + (i+1)));
+            System.out.print(dizi[i] + " ");
+            toplam += dizi[i];
+        }
+    
+ 
+         
+        // Dizinin en küçük ve en büyük elemanlarını bulduk
+        int max = dizi[0];
+        int min = dizi[0];
+         
+        for(int i=0; i<dizi.length; i++)
+        {
+            if(max < dizi[i])
+            {
+                max = dizi[i];
+            }
+             
+            if(min > dizi[i])
+            {
+                min = dizi[i];
+            }
+        }
+        System.out.println("En büyük sayı: " + max);
+        System.out.println("En küçük sayı: " + min);
+         
+       
+         // Dizideki sayıların sıralaması yapıldı
+         int takas=0;
+         for(int i=0; i<dizi.length;i++)
+         {
+             for(int k=0; k<dizi.length;k++)
+             {
+                 if(dizi[k]<dizi[i])
+                 {
+                     takas  = dizi[i];
+                     dizi[i]= dizi[k];
+                     dizi[k]=takas;
+                 }
+             } 
+         }
+          
+         System.out.println("Sayıların sıralaması: \n");
+          
+         for(int i:dizi)
+         {
+             System.out.print(i+" ");   
+         }
+         System.out.print(" \n");
+        int k= Integer.valueOf(JOptionPane.showInputDialog("kaçıncı büyük sayıyı istersiniz  Girin"));
+        for(int l=k;l<k+1;l++){
+        	System.out.print(k+ "   .sıradaki büyük sayı \n");
+        	System.out.print(dizi[l-1]);
+        }
+    }
+ 
+}
