@@ -1,0 +1,45 @@
+
+import java.io.*;
+public class LinearSearchRecursive
+{
+    static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    static int A[],size=0,flag=0;
+    
+    void input()throws Exception
+    {
+        System.out.print("Enter The Number of Element to be Linear Searched : ");
+        size=Integer.parseInt(br.readLine());
+        A=new int[size];
+        for(int i=0;i<size;i++)
+        {
+            System.out.print("Enter the Element No. "+(i+1)+" : ");
+            A[i]=Integer.parseInt(br.readLine());
+        }
+        System.out.println("\nEntered Array is : ");
+        for(int j=0;j<A.length;j++)
+            System.out.print(A[j]+" ");
+    }
+    
+    void LinearSearch(int S,int P)
+    {
+        if(P<size)
+        {
+            if(A[P]==S)
+            {
+                flag=1;
+                System.out.println("Element Found at Position : "+(P+1));
+            }
+            LinearSearch(S,(P+1));
+        }
+        else if(flag==0)
+            System.out.println("No Element Found");
+    }
+    
+    public static void main(String args[])throws Exception
+    {
+        LinearSearchRecursive obj=new LinearSearchRecursive();
+        obj.input();
+        System.out.print("\nEnter the Element to be Searched : ");
+        obj.LinearSearch(Integer.parseInt(br.readLine()),0);
+    }
+}
